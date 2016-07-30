@@ -13,5 +13,12 @@ namespace MVC5.HW.Session1.Controllers
         {
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult AccountList()
+        {
+            return View();
+        }
+             
     }
 }
