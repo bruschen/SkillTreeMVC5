@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<MVC5.HW.Session1.Models.ViewModel.AccountingViewModels>
+@{
     Layout = null;
 }
 
@@ -6,29 +7,23 @@
     <div class="col-md-12">
         <table class="table table-bordered table-hover">
             <tr>
-                <th>#</th>
-                <th>類別</th>
-                <th>日期</th>
-                <th>金額</th>
+                <th>
+                    @Html.DisplayNameFor(model=>model[0].ID)
+            </th>
+                <th>@Html.DisplayNameFor(model => model[0].Category)</th>
+                <th>@Html.DisplayNameFor(model => model[0].BillingDate)</th>
+                <th>@Html.DisplayNameFor(model => model[0].BillingAmount)</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>支出</td>
-                <td>2016-01-01</td>
-                <td>300</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>支出</td>
-                <td>2016-01-02</td>
-                <td>1,600</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>支出</td>
-                <td>2016-01-03</td>
-                <td>8,00</td>
-            </tr>
+            @foreach (var rec in Model)
+            {
+                <tr>
+                    <td>@(rec.ID)  </td>
+                    <td>@(rec.Category)</td>
+                    <td>@rec.BillingDate.ToString("yyyy-mm-dd")</td>
+                    <td>@(rec.BillingAmount)</td>
+                </tr>
+            }
+
         </table>
     </div>
 </div>
