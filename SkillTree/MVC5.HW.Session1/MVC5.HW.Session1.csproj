@@ -203,6 +203,7 @@
     <Compile Include="Services\AccountingServices.cs" />
     <Compile Include="Services\Interface\IAccountingServices.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utility\Extension\EnumExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
@@ -295,7 +296,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Utility\" />
+    <Folder Include="Utility\Helper\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
