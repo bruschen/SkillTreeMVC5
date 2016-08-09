@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using MVC5.HW.Session1.Models.ViewModel;
 using MVC5.HW.Session1.Services;
+using MVC5.HW.Session1.Services.Interface;
 
 namespace MVC5.HW.Session1.Controllers
 {
     public class AccountingController : Controller
     {
-        private AccountingServices _accountingServices;
+        private IAccountingServices _accountingServices;
 
         public AccountingController()
         {

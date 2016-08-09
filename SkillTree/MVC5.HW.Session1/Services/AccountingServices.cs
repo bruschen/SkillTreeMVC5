@@ -2,13 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MVC5.HW.Session1.Models;
 using MVC5.HW.Session1.Models.ViewModel;
+using MVC5.HW.Session1.Services.Interface;
 
 namespace MVC5.HW.Session1.Services
 {
-    public class AccountingServices
+    public class AccountingServices: IAccountingServices
     {
         public List<AccountingViewModels> GetAccountingViewModels()
+        {
+            List<AccountingViewModels> accountingViewModelsList = new List<AccountingViewModels>();
+
+            List<AccountBook> accountBookList = new List<AccountBook>();
+
+            using (var ctx = new SkillTreeHomeworkEntities())
+            {
+                accountBookList = ctx.AccountBook.ToList<AccountBook>();
+
+                accountingViewModelsList = accountBookList.Take(10).Select((b, i) => new AccountingViewModels()
+                {
+                    ID = i,
+                    Category = b.Categoryyy.ToString(),
+                    BillingDate = b.Dateee,
+                    BillingAmount = b.Amounttt
+                }).ToList();
+
+            }
+
+
+            return accountingViewModelsList;
+        }
+
+        public List<AccountingViewModels> GetAccountingViewModels2()
         {
             List<AccountingViewModels> resultList = new List<AccountingViewModels>
             {
@@ -37,5 +63,7 @@ namespace MVC5.HW.Session1.Services
 
             return resultList;
         }
+
+        
     }
 }
